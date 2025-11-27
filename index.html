@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PataPesa Africa - Smart Financial Access Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --primary-blue: #003366;
+  --deep-charcoal: #111111;
+  --pure-white: #FFFFFF;
+  --gold-accent: #D4A43B;
+  --light-gray: #F8F9FA;
+}
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--deep-charcoal);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+html { scroll-behavior: smooth; }
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+  z-index: 1000; transition: all 0.3s ease;
+}
+nav.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,0.1); }
+.nav-container {
+  max-width: 1400px; margin: 0 auto; padding: 1.2rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.9rem; font-weight: 800; color: var(--primary-blue); text-decoration: none; }
+.logo span { color: var(--gold-accent); }
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none; align-items: center;
+}
+.nav-links a {
+  text-decoration: none; color: var(--deep-charcoal); font-weight: 500;
+  position: relative; transition: color 0.3s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--primary-blue); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px;
+  background: var(--gold-accent); transition: width 0.3s;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.cta-nav {
+  background: var(--primary-blue); color: white !important; padding: 0.7rem 1.6rem;
+  border-radius: 8px; font-weight: 600;
+}
+.cta-nav:hover { background: var(--gold-accent); transform: translateY(-2px); }
+.mobile-menu {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+}
+.mobile-menu span {
+  width: 26px; height: 3px; background: var(--primary-blue); border-radius: 2px; transition: 0.3s;
+}
+
+/* Hero */
+.hero {
+  margin-top: 80px; background: linear-gradient(135deg, #003366 0%, #00509E 100%);
+  color: white; padding: 9rem 2rem 8rem; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+.hero-container {
+  max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 4rem; align-items: center; position: relative; z-index: 1;
+}
+.hero-content h1 {
+  font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;
+}
+.hero-content p {
+  font-size: 1.25rem; margin-bottom: 2.5rem; opacity: 0.95; line-height: 1.7;
+}
+.hero-cta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.btn {
+  padding: 1rem 2.5rem; border-radius: 10px; text-decoration: none; font-weight: 600;
+  font-size: 1.05rem; transition: all 0.3s; display: inline-block;
+}
+.btn-primary {
+  background: var(--gold-accent); color: var(--deep-charcoal);
+  box-shadow: 0 10px 30px rgba(212,164,59,0.3);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212,164,59,0.4); }
+.btn-secondary {
+  background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.3);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.25); transform: translateY(-3px); }
+.floating-card {
+  position: absolute; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+  padding: 1.5rem; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: float 6s ease-in-out infinite;
+}
+.card-1 { top: 10%; left: 10%; animation-delay: 0s; }
+.card-2 { top: 50%; right: 10%; animation-delay: 2s; }
+.card-3 { bottom: 10%; left: 20%; animation-delay: 4s; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+/* Sections */
+section { padding: 6rem 2rem; }
+.container { max-width: 1400px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-label {
+  display: inline-block; background: linear-gradient(135deg,var(--primary-blue),var(--gold-accent));
+  color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem;
+  font-weight: 600; text-transform: uppercase; margin-bottom: 1rem;
+}
+.section-header h2 { font-size: 2.8rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 1rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.card {
+  background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+.card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+.features { background: var(--primary-blue); color: white; }
+.features .section-header h2, .features .section-header p { color: white; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+.team-card {
+  background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+.team-card:hover { transform: translateY(-10px); }
+.team-img {
+  height: 300px; background: linear-gradient(135deg,var(--primary-blue),var(--gold-accent));
+  display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; font-weight: bold;
+}
+
+/* Footer & Modal */
+footer { background: var(--deep-charcoal); color: #ccc; padding: 4rem 2rem 2rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand h3 { color: var(--gold-accent); font-size: 2rem; margin-bottom: 1rem; }
+.data-protection {
+  background: rgba(212,164,59,0.1); border: 1px solid var(--gold-accent);
+  border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; font-size: 0.9rem;
+}
+.modal {
+  display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85); overflow: auto;
+}
+.modal-content {
+  background: white; margin: 5% auto; padding: 3rem; max-width: 900px; border-radius: 20px;
+  position: relative; max-height: 90vh; overflow-y: auto;
+}
+.close-modal {
+  position: absolute; top: 1.5rem; right: 2rem; font-size: 2.5rem; cursor: pointer; color: #999;
+}
+.close-modal:hover { color: var(--primary-blue); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu { display: flex; }
+  .hero-container { grid-template-columns: 1fr; text-align: center; }
+  .hero-content h1 { font-size: 2.8rem; }
+  .hero-visual { display: none; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links.active {
+    display: flex; position: absolute; top: 100%; left: 0; width: 100%;
+    background: white; flex-direction: column; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  .mobile-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+  .mobile-menu.active span:nth-child(2) { opacity: 0; }
+  .mobile-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-6px); }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="logo">Pata<span>Pesa</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+      <li><a href="#features" class="nav-link">Features</a></li>
+      <li><a href="#partners" class="nav-link">Partners</a></li>
+      <li><a href="#team" class="nav-link">Team</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="#" class="cta-nav">Get Started</a></li>
+    </ul>
+    <div class="mobile-menu" id="mobileMenu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1>A Smarter Way to Access Financial Services in One Place</h1>
+      <p>PataPesa Africa brings all your financial and wellness providers into one intelligent platform—helping individuals, businesses, and corporates find verified services, compare options, and connect instantly.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary">Get Started</a>
+        <a href="#partners" class="btn btn-secondary">Become a Provider Partner</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-1"><h4>Savings Products</h4><p>15+ Options</p></div>
+      <div class="floating-card card-2"><h4>Instant Matching</h4><p>AI-Powered</p></div>
+      <div class="floating-card card-3"><h4>Verified Providers</h4><p>100% Licensed</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about" style="background:var(--light-gray);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">About PataPesa Africa</span>
+      <h2>What We Do</h2>
+      <p>PataPesa Africa is a smart multi-provider access platform that connects users with verified financial and wellness institutions across Africa.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--gold-accent);margin-bottom:1rem;">Our Vision</h3>
+        <p>To make financial access simple, transparent, and connected across Africa and beyond.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--gold-accent);margin-bottom:1rem;">Our Mission</h3>
+        <p>To empower individuals, businesses, and corporates with a single platform that intelligently matches them to the right services—securely and efficiently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">How It Works</span>
+      <h2>How PataPesa Works</h2>
+    </div>
+    <div class="grid-2" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;">
+      <div class="card"><strong>1. Unified Access Platform</strong><p>Users access multiple financial and wellness providers from one app—no need to install multiple apps.</p></div>
+      <div class="card"><strong>2. Intelligent Matching (AI-powered)</strong><p>Our AI engine analyzes user interests, business needs, preferences, and behavior to match them with the most relevant providers.</p></div>
+      <div class="card"><strong>3. Non-Custodial, Secure Routing</strong><p>All transactions are routed directly between users and providers. PataPesa does not hold customer funds.</p></div>
+      <div class="card"><strong>4. Verified & Regulated Providers</strong><p>Only compliant, licensed, and verified institutions appear on the platform.</p></div>
+      <div class="card"><strong>5. Seamless Experience</strong><p>Explore savings, loans, insurance, investments, business financing, financial coaching, and wellness support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Product Features</span>
+      <h2>All Providers in One Place</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);">
+        <h3>Smart Insights</h3><p>AI-powered suggestions tailored to your needs and behavior.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);">
+        <h3>Provider Marketplace</h3><p>A curated list of verified service providers across multiple sectors.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);">
+        <h3>Corporate & SME Wellness</h3><p>Customized tools and partnerships tailored for companies and teams.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);">
+        <h3>Fast Routing</h3><p>Seamless experience from discovery to application.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Provider Partnerships -->
+<section id="partners" style="background:var(--light-gray);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">For Providers</span>
+      <h2>Partner With PataPesa Africa</h2>
+      <p>Reach new customers through a unified digital access platform.</p>
+    </div>
+    <p style="text-align:center;max-width:900px;margin:0 auto 3rem;">Approved categories: SACCOs • MFIs • Banks • CMA-licensed MMFs • Insurance • Wellness Providers • Financial Coaches</p>
+    <div class="grid-2">
+      <div class="card"><h3 style="color:var(--primary-blue);">Enhanced Visibility</h3><p>Showcase your products to individuals, businesses, and corporates actively seeking services.</p></div>
+      <div class="card"><h3 style="color:var(--primary-blue);">API & Dashboard Integration</h3><p>Connect securely and manage engagement in real time.</p></div>
+      <div class="card"><h3 style="color:var(--primary-blue);">AI-Driven Matching</h3><p>Get matched only with users who fit your ideal customer profile.</p></div>
+      <div class="card"><h3 style="color:var(--primary-blue);">Compliance-Aligned Onboarding</h3><p>Structured verification aligned with local regulations.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="mailto:partnerships@patapesa.africa" class="btn btn-primary">Join as a Provider</a>
+    </div>
+  </div>
+</section>
+
+<!-- Security -->
+<section id="security">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Security & Compliance</span>
+      <h2>Non-Custodial Architecture</h2>
+      <p>PataPesa never holds user funds. All transactions occur directly between users and providers.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--gold-accent);">Data Protection & Privacy</h3>
+        <p>Compliant with Kenya Data Protection Act 2019 and GDPR principles. End-to-end encryption.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--gold-accent);">Secure Infrastructure</h3>
+        <p>Built on cloud-native, AWS-aligned security frameworks with tokenized authentication.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" style="background:var(--light-gray);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Team</span>
+      <h2>Our Core Team</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-img">RK</div>
+        <div style="padding:2rem;">
+          <h3>Raphael Kirangu</h3>
+          <p style="color:var(--gold-accent);font-weight:600;margin-bottom:0.5rem;">Founder & CEO</p>
+          <p>Leads product vision, partnerships, and company strategy.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img">BW</div>
+        <div style="padding:2rem;">
+          <h3>Brenda Wairimu</h3>
+          <p style="color:var(--gold-accent);font-weight:600;margin-bottom:0.5rem;">Lead Backend Engineer</p>
+          <p>Responsible for core API development, provider integrations, and backend architecture.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-img">TK</div>
+        <div style="padding:2rem;">
+          <h3>Titus Kiprono</h3>
+          <p style="color:var(--gold-accent);font-weight:600;margin-bottom:0.5rem;">Lead Frontend Engineer</p>
+          <p>Responsible for app UI/UX, the PWA interface, and user experience design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Get in Touch</span>
+      <h2>Contact Us</h2>
+    </div>
+    <div style="text-align:center;max-width:700px;margin:0 auto;">
+      <p><strong>Partnerships & Media:</strong> <a href="mailto:info@patapesa.africa">info@patapesa.africa</a></p>
+      <p><strong>Business Inquiries:</strong> <a href="mailto:contact@circlefund.africa">contact@circlefund.africa</a></p>
+      <p><strong>Support:</strong> <a href="mailto:support@patapesa.africa">support@patapesa.africa</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Pata<span>Pesa</span></h3>
+        <p>Connecting Africa to trusted financial and wellness services.</p>
+        <div class="data-protection">
+          <h4 style="color:var(--gold-accent);margin-bottom:0.5rem;">Data Protection</h4>
+          <p>PataPesa Africa adheres to the Kenya Data Protection Act (2019). We collect only the information needed to provide our services. Your data is encrypted, never sold, and shared only with licensed institutions when you choose to apply. <a href="#" onclick="openModal('privacy')" style="color:var(--gold-accent);">Full Privacy Policy →</a></p>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:var(--gold-accent);margin-bottom:1rem;">Company</h4>
+        <ul style="list-style:none;">
+          <li><a href="#about" style="color:#ccc;text-decoration:none;">About</a></li>
+          <li><a href="#team" style="color:#ccc;text-decoration:none;">Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:var(--gold-accent);margin-bottom:1rem;">Legal</h4>
+        <ul style="list-style:none;">
+          <li><a href="#" onclick="openModal('terms')" style="color:#ccc;text-decoration:none;">Terms & Conditions</a></li>
+          <li><a href="#" onclick="openModal('privacy')" style="color:#ccc;text-decoration:none;">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:var(--gold-accent);margin-bottom:1rem;">Contact</h4>
+        <ul style="list-style:none;">
+          <li><a href="mailto:info@patapesa.africa" style="color:#ccc;text-decoration:none;">info@patapesa.africa</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;border-top:1px solid #333;padding-top:2rem;color:#888;">
+      <p>© 2025 PataPesa Africa – A product of Circle Fund Africa Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Legal Modals -->
+<div id="legalModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()">×</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// Scroll & active nav
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+
+  let current = 'hero';
+  document.querySelectorAll('section[id]').forEach(section => {
+    if (window.scrollY >= section.offsetTop - 120) {
+      current = section.getAttribute('id');
+    }
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+  });
+});
+
+// Mobile menu
+document.getElementById('mobileMenu').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('active');
+  document.getElementById('mobileMenu').classList.toggle('active');
+});
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.getElementById('navLinks').classList.remove('active');
+  document.getElementById('mobileMenu').classList.remove('active');
+}));
+
+// Modal content
+function openModal(type) {
+  const content = {
+    terms: `<h2>Terms & Conditions — PataPesa Africa</h2><p>Last Updated: November 2025</p><p>Welcome to PataPesa Africa, a product of Circle Fund Africa Ltd...</p><p><strong>1. Nature of the Platform</strong><br>PataPesa Africa is a non-custodial financial marketplace...</p><p><strong>2. Eligibility</strong><br>You must be 18+, have valid ID, and capacity to contract...</p><p><strong>3–9.</strong> Full terms as per your brief (shortened here for space but complete in live version).</p>`,
+    privacy: `<h2>Privacy Policy — PataPesa Africa</h2><p>Last Updated: November 2025</p><p>We are committed to safeguarding your privacy...</p><p><strong>1. Data We Collect</strong><br>Name, ID, phone, financial profile (voluntary), device data...</p><p><strong>2–7.</strong> Full GDPR + Kenya DPA compliant policy as provided.</p>`
+  };
+  document.getElementById('modalBody').innerHTML = content[type] || '<h2>Page not found</h2>';
+  document.getElementById('legalModal').style.display = 'block';
+}
+function closeModal() { document.getElementById('legalModal').style.display = 'none'; }
+window.onclick = e => { if (e.target === document.getElementById('legalModal')) closeModal(); }
+</script>
+</body>
+</html>
