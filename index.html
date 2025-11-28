@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PataPesa Africa - Smart Financial Access Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 :root {
@@ -60,49 +61,122 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,0.1); }
   width: 26px; height: 3px; background: var(--primary-blue); border-radius: 2px; transition: 0.3s;
 }
 
+/* --- Hero Logo  --- */
+.hero-logo {
+  width: 150px;      
+  height: 150px;
+  display:block;
+  margin-bottom: 3.5rem;
+  opacity: 0.95;
+  
+}
+
+.hero-logo:hover {
+  opacity: 1;
+  transform: scale(1.04);
+  transition: 0.25s ease;
+}
+
 /* Hero */
 .hero {
-  margin-top: 80px; background: linear-gradient(135deg, #003366 0%, #00509E 100%);
-  color: white; padding: 9rem 2rem 8rem; position: relative; overflow: hidden;
+  margin-top: 80px;
+  background: linear-gradient(135deg, #003366 0%, #00509E 100%);
+  color: white;
+  padding: 9rem 2rem 8rem;
+  position: relative;
+  overflow: hidden;
 }
+
 .hero::before {
-  content: ''; position: absolute; inset: 0;
+  content: '';
+  position: absolute;
+  inset: 0;
   background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
   opacity: 0.3;
 }
+
 .hero-container {
-  max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr;
-  gap: 4rem; align-items: center; position: relative; z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
+
 .hero-content h1 {
-  font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
 }
+
 .hero-content p {
-  font-size: 1.25rem; margin-bottom: 2.5rem; opacity: 0.95; line-height: 1.7;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  line-height: 1.7;
 }
-.hero-cta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .btn {
-  padding: 1rem 2.5rem; border-radius: 10px; text-decoration: none; font-weight: 600;
-  font-size: 1.05rem; transition: all 0.3s; display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s;
+  display: inline-block;
 }
+
 .btn-primary {
-  background: var(--gold-accent); color: var(--deep-charcoal);
+  background: var(--gold-accent);
+  color: var(--deep-charcoal);
   box-shadow: 0 10px 30px rgba(212,164,59,0.3);
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212,164,59,0.4); }
-.btn-secondary {
-  background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.3);
+
+.btn-primary:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 15px 40px rgba(212,164,59,0.4); 
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.25); transform: translateY(-3px); }
+
+.btn-secondary {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-3px);
+}
+
 .floating-card {
-  position: absolute; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-  padding: 1.5rem; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  position: absolute;
+  background: rgba(81, 92, 66, 0.95);
+  backdrop-filter: blur(40px);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
   animation: float 6s ease-in-out infinite;
 }
-.card-1 { top: 10%; left: 10%; animation-delay: 0s; }
+
+.card-1 { top: 40%; left: 50%; animation-delay: 0s; }
 .card-2 { top: 50%; right: 10%; animation-delay: 2s; }
-.card-3 { bottom: 10%; left: 20%; animation-delay: 4s; }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+.card-3 { bottom: 20%; left: 50%; animation-delay: 4s; }
+
+@keyframes float { 
+  0%,100% { transform: translateY(0); } 
+  50% { transform: translateY(-20px); } 
+}
+
 
 /* Sections */
 section { padding: 6rem 2rem; }
@@ -134,7 +208,7 @@ section { padding: 6rem 2rem; }
 }
 
 /* Footer & Modal */
-footer { background: var(--deep-charcoal); color: #ccc; padding: 4rem 2rem 2rem; }
+footer { background: var(--deep-charcoal); color: #ccc; padding: 2rem 1rem 2rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
 .footer-brand h3 { color: var(--gold-accent); font-size: 2rem; margin-bottom: 1rem; }
 .data-protection {
@@ -153,6 +227,87 @@ footer { background: var(--deep-charcoal); color: #ccc; padding: 4rem 2rem 2rem;
   position: absolute; top: 1.5rem; right: 2rem; font-size: 2.5rem; cursor: pointer; color: #999;
 }
 .close-modal:hover { color: var(--primary-blue); }
+
+/* --- Footer Logo Styling --- */
+.footer-logo {
+  width: 150px;     
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+  transform: scale(1.03);
+  transition: 0.2s ease;
+}
+
+/* Footer & Modal */
+footer {
+  background: var(--deep-charcoal);
+  color: #ccc;
+  padding: 2rem 1rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+  color: var(--gold-accent);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.data-protection {
+  background: rgba(212,164,59,0.1);
+  border: 1px solid var(--gold-accent);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  overflow: auto;
+}
+
+.modal-content {
+  background: white;
+  margin: 5% auto;
+  padding: 3rem;
+  max-width: 900px;
+  border-radius: 20px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-modal:hover {
+  color: var(--primary-blue);
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -200,6 +355,7 @@ footer { background: var(--deep-charcoal); color: #ccc; padding: 4rem 2rem 2rem;
 <section id="hero" class="hero">
   <div class="hero-container">
     <div class="hero-content">
+      <img src="patapesa-logo.png" alt="PataPesa Logo" class="hero-logo">
       <h1>A Smarter Way to Access Financial Services in One Place</h1>
       <p>PataPesa Africa brings all your financial and wellness providers into one intelligent platform—helping individuals, businesses, and corporates find verified services, compare options, and connect instantly.</p>
       <div class="hero-cta">
@@ -219,6 +375,7 @@ footer { background: var(--deep-charcoal); color: #ccc; padding: 4rem 2rem 2rem;
 <section id="about" class="about" style="background:var(--light-gray);">
   <div class="container">
     <div class="section-header">
+      <img src="file:///home/user/Desktop/image.A1TMG3.png" alt="PataPesa Logo">
       <span class="section-label">About PataPesa Africa</span>
       <h2>What We Do</h2>
       <p>PataPesa Africa is a smart multi-provider access platform that connects users with verified financial and wellness institutions across Africa.</p>
@@ -375,6 +532,8 @@ footer { background: var(--deep-charcoal); color: #ccc; padding: 4rem 2rem 2rem;
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
+        <div class="py-10 bg-gray-100 text-center">
+        <img src="patapesa-logo.png" alt="PataPesa Logo" class="footer-logo">
         <h3>Pata<span>Pesa</span></h3>
         <p>Connecting Africa to trusted financial and wellness services.</p>
         <div class="data-protection">
