@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PataPasa Africa - Smarter Financial Services</title>
+    <title>PataPesa Africa - Smarter Financial Services</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -372,6 +372,104 @@
         .col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
         .col-12 { flex: 0 0 100%; max-width: 100%; }
         
+        /* Logo Styling */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-symbol {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--pesaflow-blue) 100%);
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-symbol::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--gold-accent);
+            border-radius: 4px;
+            transform: rotate(45deg);
+        }
+        
+        .logo-symbol::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--pure-white);
+            border-radius: 2px;
+            transform: rotate(45deg);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            color: var(--gold-accent);
+        }
+        
+        .footer-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-logo-symbol {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-accent) 0%, #ffc857 100%);
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-logo-symbol::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-blue);
+            border-radius: 5px;
+            transform: rotate(45deg);
+        }
+        
+        .footer-logo-symbol::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--pure-white);
+            border-radius: 3px;
+            transform: rotate(45deg);
+        }
+        
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: -0.5px;
+        }
+        
+        .footer-logo-text span {
+            color: var(--gold-accent);
+        }
+        
         /* Navigation */
         .navbar {
             position: fixed;
@@ -380,7 +478,7 @@
             width: 100%;
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            z-index: var(--z-sticky);
+            z-index: 1000;
             padding: var(--space-sm) 0;
             transition: all var(--transition-medium);
             box-shadow: var(--shadow-sm);
@@ -396,7 +494,6 @@
             align-items: center;
             justify-content: space-between;
         }
-        
         .navbar-logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -527,6 +624,11 @@
             height: 100%;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><circle cx="400" cy="400" r="300" fill="%23003366" opacity="0.03"/></svg>') no-repeat center;
             background-size: contain;
+        }
+        img {
+            max-width:100%;
+            height:auto;
+            display:block;
         }
         
         .hero-container {
@@ -1063,6 +1165,14 @@
                 width: 100%;
                 max-width: 400px;
             }
+            
+            .logo-text {
+                font-size: 1.25rem;
+            }
+            
+            .footer-logo-text {
+                font-size: 1.25rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1084,6 +1194,24 @@
             
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .logo-wrapper {
+                gap: 8px;
+            }
+            
+            .logo-symbol {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .footer-logo-wrapper {
+                gap: 8px;
+            }
+            
+            .footer-logo-symbol {
+                width: 32px;
+                height: 32px;
             }
         }
         
@@ -1131,7 +1259,7 @@
     <nav class="navbar">
         <div class="container navbar-container">
             <a href="#" class="navbar-logo">
-                Pata<span>Pasa</span>
+                Pata<span>Pesa</span>
             </a>
             
             <button class="mobile-toggle" id="mobileToggle">
@@ -1244,7 +1372,7 @@
                             <div class="dashboard-header">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-chart-line" style="margin-right: 10px;"></i>
-                                    <span>PataPasa Dashboard</span>
+                                    <span>PataPesa Dashboard</span>
                                 </div>
                                 <div class="badge badge-success">Live</div>
                             </div>
@@ -1308,7 +1436,7 @@
     <section class="section" id="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">How PataPasa Works</h2>
+                <h2 class="section-title">How PataPesa Works</h2>
                 <p class="section-subtitle">Get matched with the perfect financial solution in just 5 simple steps</p>
             </div>
             
@@ -1498,7 +1626,7 @@
             
             <div class="bg-dark rounded-lg p-5 text-center">
                 <h3 class="mb-3">All transactions route directly between the user and the provider.</h3>
-                <p class="mb-4">PataPasa never holds user funds. Experience the security and convenience of non-custodial payments.</p>
+                <p class="mb-4">PataPesa never holds user funds. Experience the security and convenience of non-custodial payments.</p>
                 <a href="#get-started" class="btn btn-primary">Start Using PesaFlow™</a>
             </div>
         </div>
@@ -1509,13 +1637,13 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Provider Hub</h2>
-                <p class="section-subtitle">Empower your institutional growth with PataPasa Africa</p>
+                <p class="section-subtitle">Empower your institutional growth with PataPesa Africa</p>
             </div>
             
             <div class="row mb-6 align-items-center">
                 <div class="col-6">
                     <h3 class="mb-4">The Future of Financial Services Distribution</h3>
-                    <p class="mb-3">In a world where there is a growing demand for technologies that address fragmentation to streamline and satisfy how users interact with financial and wellness services, PataPasa Africa provides a unified, high-intent ecosystem.</p>
+                    <p class="mb-3">In a world where there is a growing demand for technologies that address fragmentation to streamline and satisfy how users interact with financial and wellness services, PataPesa Africa provides a unified, high-intent ecosystem.</p>
                     <p class="mb-4">Stop building fragmented digital tools and join a unified growth engine. We save you millions in development while giving you instant access to a ready-to-transact user base.</p>
                     <div class="d-flex gap-3">
                         <a href="#pricing" class="btn btn-primary">Explore Partnership Tiers</a>
@@ -1524,7 +1652,7 @@
                 </div>
                 <div class="col-6">
                     <div class="card p-4">
-                        <h4 class="text-center mb-4">Why Institutions Choose PataPasa</h4>
+                        <h4 class="text-center mb-4">Why Institutions Choose PataPesa</h4>
                         <div class="row">
                             <div class="col-6 mb-4">
                                 <div class="d-flex align-items-start">
@@ -1663,9 +1791,9 @@
                             <span class="badge badge-primary">Enterprise</span>
                         </div>
                         <h3 class="pricing-title">Branded Digital Branch</h3>
-                        <div class="pricing-price">KES 250,000</div>
+                        <div class="pricing-price">KES 200,000</div>
                         <div class="pricing-period">Setup Fee</div>
-                        <div class="mt-2">KES 270,000/month</div>
+                        <div class="mt-2">KES 300,000/month</div>
                         <p>Note: All prices are quoted exclusive of 16% VAT. Fees are subject to adjustment in alignment with evolving government tax regulations.</p>
                     </div>
                     <div class="pricing-body">
@@ -1715,7 +1843,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Ready to Transform Your Financial Experience?</h2>
-                <p class="section-subtitle">Join thousands of users and providers who trust PataPasa for smarter financial services</p>
+                <p class="section-subtitle">Join thousands of users and providers who trust PataPesa for smarter financial services</p>
             </div>
             
             <div class="row justify-content-center">
@@ -1756,7 +1884,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h4 class="footer-title">PataPasa Africa</h4>
+                        <img src="/patapesa-logo.png" alt="PataPesa Africa" class="footer-logo">                        <div class="footer-logo-text">Pata<span>Pesa</span></div>
+                    </div>
+                    <h4 class="footer-title">PataPesa Africa</h4>
                     <p>A smarter way to access financial services in one place. Powered by PesaFlow™ for secure, non-custodial, multi-channel payments.</p>
                     <div class="d-flex gap-3 mt-4">
                         <a href="#" class="footer-link"><i class="fab fa-twitter"></i></a>
@@ -1804,7 +1934,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 PataPasa Africa. All rights reserved. PesaFlow™ is a trademark of PataPasa Africa.</p>
+                <p>&copy; 2025 PataPesa Africa. All rights reserved. PesaFlow™ is a trademark of PataPesa Africa.</p>
                 <p class="mt-2">Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for Africa's financial future</p>
             </div>
         </div>
