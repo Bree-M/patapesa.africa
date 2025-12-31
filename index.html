@@ -479,20 +479,22 @@
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: var(--space-sm) 0;
+            padding: var(--space-xs) 0; /* Reduced from var(--space-sm) */
             transition: all var(--transition-medium);
             box-shadow: var(--shadow-sm);
+            min-height: 60px; /* Smaller overall height */
         }
         
         .navbar.scrolled {
-            padding: var(--space-xs) 0;
+            padding: 6px 0; /* Even smaller when scrolled */
             box-shadow: var(--shadow-md);
         }
         
         .navbar-container {
-            display: flex;
+            display:contents;
             align-items: center;
-            justify-content: space-between;
+            justify-content:first baseline;
+            height: 100%;
         }
         .navbar-logo {
             font-size: 1.5rem;
@@ -1165,53 +1167,110 @@
                 width: 100%;
                 max-width: 400px;
             }
+        }
             
+            .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-wrapper img {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            object-fit: contain;
+            background-color: var(--pure-white); /* fallback for transparent logos */
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--gold-accent);
+        }
+
+        /* Footer-specific logo adjustments */
+        .footer-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-logo-wrapper img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            object-fit: contain;
+            background-color: transparent;
+        }
+
+        .footer-logo-text {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: -0.5px;
+        }
+
+        .footer-logo-text span {
+            color: var(--gold-accent);
+        }
+
+        .tagline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin: var(--space-sm) 0;
+        }
+
+        .disclaimer {
+            margin-top: var(--space-lg);
+            padding: var(--space-md);
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        @media (max-width: 768px) {
+            .logo-wrapper img {
+                width: 36px;
+                height: 36px;
+            }
+            .logo-text {
+                font-size: 1.35rem;
+            }
+
+            .footer-logo-wrapper img {
+                width: 40px;
+                height: 40px;
+            }
+            .footer-logo-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-wrapper img {
+                width: 32px;
+                height: 32px;
+            }
             .logo-text {
                 font-size: 1.25rem;
             }
-            
+
+            .footer-logo-wrapper img {
+                width: 36px;
+                height: 36px;
+            }
             .footer-logo-text {
-                font-size: 1.25rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .container, .container-fluid {
-                padding: 0 var(--space-md);
-            }
-            
-            .section {
-                padding: var(--space-xl) 0;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .payment-methods-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .logo-wrapper {
-                gap: 8px;
-            }
-            
-            .logo-symbol {
-                width: 28px;
-                height: 28px;
-            }
-            
-            .footer-logo-wrapper {
-                gap: 8px;
-            }
-            
-            .footer-logo-symbol {
-                width: 32px;
-                height: 32px;
+                font-size: 1.35rem;
             }
         }
         
@@ -1409,14 +1468,16 @@
                 grid-template-columns: 1fr;
             }
         }
+        
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container navbar-container">
-            <a href="#" class="navbar-logo">
-                Pata<span>Pesa</span>
+            <a href="#home" class="logo-wrapper navbar-logo">
+                <img src="/patapesa-logo.png" alt="PataPesa Africa Logo">
+                <div class="logo-text">Pata<span>Pesa</span></div>
             </a>
             
             <button class="mobile-toggle" id="mobileToggle">
@@ -1455,12 +1516,12 @@
                     <div class="hero-content">
                         <h1 class="hero-headline">A Smarter Way to Access Financial Services in One Place</h1>
                         <div class="hero-supporting-line">
-                            <span>Powered by</span>
+                            <span>Smart, secure, non-custodial, multi-channel payments.</span>
+                            <p><span>Powered by</span>
                             <span class="pesaflow-badge">
                                 <i class="fas fa-bolt"></i>
                                 PesaFlow™
-                            </span>
-                            <span>Smart, secure, non-custodial, multi-channel payments.</span>
+                            </span></p>
                         </div>
                         <p class="hero-subheadline">Connect with verified financial providers, compare options instantly, and access loans, savings, insurance, and investments tailored to your needs.</p>
                         
@@ -2168,40 +2229,56 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
+                <!-- COLUMN 1 - BRAND & IDENTITY (Updated with Logo + New Content) -->
                 <div>
                     <div class="footer-logo-wrapper">
-                        <div class="footer-logo-symbol"></div>
-                        <div class="footer-logo-text">Pata<span>Pesa</span></div>
+                        <img src="patapesa-logo.png">
+                        <div class="footer-logo-text">Pata<span>Pesa</span> Africa</div>
                     </div>
                     
-                    <p>A smarter way to access financial services in one place. Powered by PesaFlow™ for secure, non-custodial, multi-channel payments.</p>
+                    <p>
+                        PataPesa Africa connects users to trusted financial and wellness providers across Africa.
+                    </p>
                     
-                    <p style="margin-top: var(--space-md); font-size: 0.875rem;">
-                        <strong>Office:</strong> TuWork Coworking, Olenguruone Avenue, Lavington, Nairobi, Kenya<br>
+                    <p><strong>Powered by PesaDirect™</strong></p>
+                    
+                    <p class="tagline">Smart. Secure. Non-Custodial.</p>
+                    
+                    <!-- Office Address -->
+                    <p style="margin-top: var(--space-md); font-size: 0.875rem; opacity: 0.9;">
+                        <strong>Office:</strong> TuWork Coworking, Olenguruone Road, Lavington, Nairobi, Kenya<br>
                         <strong>Mailing:</strong> P.O. Box 17888 - 00100, Nairobi, Kenya
                     </p>
                     
+                    <!-- Social Links -->
                     <div class="d-flex gap-3 mt-4">
                         <a href="#" class="footer-link"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="footer-link"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="footer-link"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="footer-link"><i class="fab fa-instagram"></i></a>
                     </div>
+                    
+                    <!-- DISCLAIMER -->
+                    <div class="disclaimer" style="margin-top: var(--space-lg); padding: var(--space-md); background-color: rgba(255,255,255,0.05); border-radius: var(--radius-md); font-size: 0.875rem;">
+                        <strong>Important:</strong> PataPesa does not hold user funds. All transactions are conducted directly between users and licensed providers.
+                    </div>
                 </div>
                 
+                <!-- COLUMN 2 - Quick Links -->
                 <div>
-                    <h4 class="footer-title">Quick Links</h4>
+                    <h4 class="footer-title">Platform</h4>
                     <div class="footer-links">
                         <a href="#home" class="footer-link">Home</a>
                         <a href="#about" class="footer-link">About Us</a>
                         <a href="#services" class="footer-link">Services</a>
                         <a href="#provider-hub" class="footer-link">Provider Hub</a>
-                        <a href="#pesaflow" class="footer-link">PesaFlow™</a>
+                        <a href="#pesaflow" class="footer-link">PesaDirect™</a>
                         <a href="#contact" class="footer-link">Contact</a>
                         <a href="#security" class="footer-link">Security & Compliance</a>
                     </div>
                 </div>
                 
+                <!-- COLUMN 3 - Services -->
                 <div>
                     <h4 class="footer-title">Services</h4>
                     <div class="footer-links">
@@ -2214,6 +2291,7 @@
                     </div>
                 </div>
                 
+                <!-- COLUMN 4 - Legal -->
                 <div>
                     <h4 class="footer-title">Legal</h4>
                     <div class="footer-links">
@@ -2222,7 +2300,7 @@
                         <a href="#data" class="footer-link">Data Protection Statement</a>
                         <a href="#cookies" class="footer-link">Cookie Policy</a>
                         <a href="#compliance" class="footer-link">Compliance Overview</a>
-                        <a href="#pesaflow-terms" class="footer-link">PesaFlow™ Terms of Service</a>
+                        <a href="#pesaflow-terms" class="footer-link">PesaDirect™ Terms of Service</a>
                     </div>
                 </div>
             </div>
