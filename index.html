@@ -1252,6 +1252,163 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #002244;
         }
+
+        .contact-hero {
+            padding: var(--space-xxl) 0 var(--space-xl);
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(212, 164, 59, 0.05) 100%);
+            text-align: center;
+        }
+        .contact-hero h1 {
+            margin-bottom: var(--space-md);
+        }
+        .contact-hero .intro {
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+            font-size: 1.125rem;
+            color: var(--medium-gray);
+        }
+        .self-service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .help-link {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.875rem;
+        }
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--success-green);
+            border-radius: 50%;
+        }
+        .contact-main {
+            background-color: var(--light-gray);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: var(--space-xxl);
+        }
+        .contact-form-wrapper h2,
+        .direct-contact h2 {
+            margin-bottom: var(--space-sm);
+        }
+        .contact-form-wrapper p {
+            margin-bottom: var(--space-lg);
+            color: var(--medium-gray);
+        }
+        .success-message {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success-green);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: var(--alert-red);
+        }
+        .error-message {
+            color: var(--alert-red);
+            font-size: 0.875rem;
+            margin-top: var(--space-xs);
+            display: block;
+        }
+        .full-width {
+            width: 100%;
+        }
+        .security-note {
+            margin-top: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+            text-align: center;
+        }
+        .lock-icon {
+            margin-right: 4px;
+        }
+        .direct-contact .contact-method {
+            margin-bottom: var(--space-xl);
+        }
+        .direct-contact .contact-method h3 {
+            margin-bottom: var(--space-xs);
+        }
+        .direct-contact .btn-secondary {
+            margin: var(--space-md) 0;
+        }
+        .offline-note {
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+        }
+        .emergency {
+            border: 1px solid var(--alert-red);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+        .team-highlight {
+            font-style: italic;
+            color: var(--medium-gray);
+        }
+        .contact-trust {
+            text-align: center;
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        .office-info p {
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .jurisdiction {
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+            margin-top: var(--space-md);
+        }
+        .map-embed {
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid,
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1267,12 +1424,8 @@
             </button>
             
             <ul class="navbar-nav" id="navbarNav">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                 <li class="nav-item dropdown">
                     <a href="#services" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
@@ -1281,17 +1434,10 @@
                         <li><a href="#providers" class="dropdown-item">For Providers</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#provider-hub" class="nav-link">Provider Hub</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pesaflow" class="nav-link">PesaFlow™</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#resources" class="nav-link">Resources</a></li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
+                <li class="nav-item"><a href="#provider-hub" class="nav-link">Provider Hub</a></li>
+                <li class="nav-item"><a href="#pesaflow" class="nav-link">PesaFlow™</a></li>
+                <li class="nav-item"><a href="#resources" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             
             <div class="navbar-cta">
@@ -1793,7 +1939,7 @@
                         <h3 class="pricing-title">Branded Digital Branch</h3>
                         <div class="pricing-price">KES 200,000</div>
                         <div class="pricing-period">Setup Fee</div>
-                        <div class="mt-2">KES 300,000/month</div>
+                        <div class="mt-2">KES ,000/month</div>
                         <p>Note: All prices are quoted exclusive of 16% VAT. Fees are subject to adjustment in alignment with evolving government tax regulations.</p>
                     </div>
                     <div class="pricing-body">
@@ -1879,15 +2025,162 @@
         </div>
     </section>
 
+    <section class="section" id="contact">
+        <div class="contact-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p class="intro">
+                    We're here to help. Whether you're exploring our platform, need support, or want to partner. Reach out directly.
+                </p>
+
+                <div class="self-service">
+                    <a href="https://help.patapesa.africa" class="help-link" target="_blank" rel="noopener noreferrer">
+                        Have a quick question? Visit our Help Center →
+                    </a>
+
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span>All systems operational</span>
+                        <a href="https://status.patapesa.africa" target="_blank" rel="noopener noreferrer">View status</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="contact-main page-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form-wrapper">
+                        <h2>Send Us a Message</h2>
+                        <p>We typically respond within 2–4 hours on business days.</p>
+
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="name-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Inquiry Type</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select an option</option>
+                                    <option value="account">Account Access</option>
+                                    <option value="technical">Technical Issue</option>
+                                    <option value="partnership">Business Partnership</option>
+                                    <option value="media">Media / Press</option>
+                                    <option value="general">General Inquiry</option>
+                                </select>
+                                <span class="error-message" id="subject-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                                <span class="error-message" id="message-error"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary full-width">Send Message</button>
+
+                            <p class="security-note">
+                                <span class="lock-icon">🔒</span>
+                                Your data is protected under the Kenya Data Protection Act. Encrypted & secure.
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="direct-contact">
+                        <h2>Other Ways to Reach Us</h2>
+
+                        <div class="contact-method">
+                            <h3>Live Chat</h3>
+                            <p>Typically replies in ~2 minutes during business hours.</p>
+                            <button class="btn btn-secondary">Start Live Chat</button>
+                            <p class="offline-note">Offline? Leave a message — we'll reply via email.</p>
+                        </div>
+
+                        <div class="contact-method">
+                            <h3>Email Support</h3>
+                            <p><a href="mailto:support@patapesa.africa">support@patapesa.africa</a></p>
+                            <p>Best for detailed inquiries. Response within 24 hours.</p>
+                        </div>
+
+                        <div class="contact-method emergency">
+                            <h3>Emergency Support</h3>
+                            <p>For fraud reports or account lock issues:</p>
+                            <p class="phone">+254 700 000 000</p>
+                            <p>Available 24/7</p>
+                        </div>
+
+                        <div class="team-highlight">
+                            <p><strong>You’ll be helped by our Nairobi-based team</strong><br>Real people. No bots. Always professional and kind.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-trust page-section">
+            <div class="container">
+                <h2>Our Office</h2>
+                <div class="trust-grid">
+                    <div class="office-info">
+                        <p>
+                            <strong>PataPesa Africa</strong><br>
+                            A product of Circle Fund Africa<br>
+                            TuWork Coworking Nairobi<br>
+                            Olenguruone Avenue, Lavington<br>
+                            Nairobi, Kenya<br><br>
+                            <strong>Mailing Address:</strong><br>
+                            TuWork Park<br>
+                            P.O. Box 17888 - 00100<br>
+                            Nairobi, Kenya
+                        </p>
+                        <p class="jurisdiction">
+                            Operating under Kenyan law. Non-custodial marketplace.
+                        </p>
+                    </div>
+
+                    <div class="map-embed">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.779012345678!2d36.780499!3d-1.287699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f111111111111%3A0x1111111111111111!2sTuWork%20Coworking%20Nairobi!5e0!3m2!1sen!2ske!4v1735680000000"
+                            width="100%"
+                            height="320"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="PataPesa Africa Office Location">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                        <img src="/patapesa-logo.png" alt="PataPesa Africa" class="footer-logo">                        <div class="footer-logo-text">Pata<span>Pesa</span></div>
+                    <div class="footer-logo-wrapper">
+                        <div class="footer-logo-symbol"></div>
+                        <div class="footer-logo-text">Pata<span>Pesa</span></div>
                     </div>
-                    <h4 class="footer-title">PataPesa Africa</h4>
+                    
                     <p>A smarter way to access financial services in one place. Powered by PesaFlow™ for secure, non-custodial, multi-channel payments.</p>
+                    
+                    <p style="margin-top: var(--space-md); font-size: 0.875rem;">
+                        <strong>Office:</strong> TuWork Coworking, Olenguruone Avenue, Lavington, Nairobi, Kenya<br>
+                        <strong>Mailing:</strong> P.O. Box 17888 - 00100, Nairobi, Kenya
+                    </p>
+                    
                     <div class="d-flex gap-3 mt-4">
                         <a href="#" class="footer-link"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="footer-link"><i class="fab fa-linkedin"></i></a>
@@ -1904,6 +2197,7 @@
                         <a href="#services" class="footer-link">Services</a>
                         <a href="#provider-hub" class="footer-link">Provider Hub</a>
                         <a href="#pesaflow" class="footer-link">PesaFlow™</a>
+                        <a href="#contact" class="footer-link">Contact</a>
                         <a href="#security" class="footer-link">Security & Compliance</a>
                     </div>
                 </div>
@@ -1932,12 +2226,25 @@
                     </div>
                 </div>
             </div>
+            <div class="map-embed">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.779012345678!2d36.780499!3d-1.287699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f111111111111%3A0x1111111111111111!2sTuWork%20Coworking%20Nairobi!5e0!3m2!1sen!2ske!4v1735680000000"
+                    width="100%"
+                    height="320"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="PataPesa Africa Office Location">
+                </iframe>
+            </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 PataPesa Africa. All rights reserved. PesaFlow™ is a trademark of PataPesa Africa.</p>
+                <p>© 2025 PataPesa Africa. All rights reserved. PesaFlow™ is a trademark of PataPesa Africa.</p>
                 <p class="mt-2">Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for Africa's financial future</p>
             </div>
         </div>
+    </footer>
     </footer>
 
     <!-- JavaScript -->
