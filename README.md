@@ -52,45 +52,9 @@ PataPesa is Africa's financial infrastructure layer - a non-custodial marketplac
 7. **Why Institutions Choose PataPesa** - 4 benefits with metrics (70% CAC reduction, 3x conversion, KES 25K investment, 14-day deployment)
 8. **Trust & Compliance** - ODPC certification and non-custodial guarantee
 
-## Design System
 
-### Brand Colors
-```css
-Primary Blue:    #003366 (trust, stability)
-Gold Accent:     #D4A43B (premium, success)
-Charcoal:        #111111 (text, contrast)
-White:           #FFFFFF (backgrounds)
-```
 
-### Gradient System
-- **Gold:** `from-[#D4A43B] to-yellow-500` - Primary CTAs, CEO avatar, featured elements
-- **Blue:** `from-[#003366] to-blue-600` - Technology features, Backend Engineer avatar
-- **Purple:** `from-purple-500 to-pink-500` - Innovation, MSMEs
-- **Green:** `from-green-500 to-emerald-500` - Growth metrics, wellness
-- **Pink:** `from-pink-500 to-rose-500` - Action items, conversions
 
-### Typography
-- **H1:** 48-60px, Bold, White (Hero headlines)
-- **H2:** 36-48px, Bold, White (Section titles)
-- **H3:** 20-24px, Semibold, White (Card headers)
-- **Body:** 16px, Regular, Gray-300
-- **Small:** 14px, Regular, Gray-400
-
-### Component Patterns
-```css
-Glassmorphism Cards:
-bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10
-hover:border-[#D4A43B]/50 transition-all
-
-Primary Button:
-bg-gradient-to-r from-[#D4A43B] to-yellow-500
-rounded-full px-6 py-3 font-semibold shadow-lg
-
-Badge:
-inline-flex items-center gap-2 px-4 py-2
-bg-gradient-to-r from-[color]/20 to-[color]/20
-rounded-full border border-[color]/30
-```
 
 ## Technical Stack
 
@@ -128,57 +92,10 @@ rounded-full border border-[color]/30
 └── package.json
 ```
 
-### Routing
-Client-side routing using React state management:
-```typescript
-const [currentPage, setCurrentPage] = useState("home");
-```
 
-Navigation handled via `onNavigate` prop passing throughout components.
 
-### Animation System
-```typescript
-// Entry animations
-initial={{ opacity: 0, y: 30 }}
-whileInView={{ opacity: 1, y: 0 }}
-viewport={{ once: true }}
-transition={{ duration: 0.6 }}
 
-// Staggered animations
-transition={{ duration: 0.5, delay: index * 0.1 }}
 
-// Hover effects
-whileHover={{ y: -5, scale: 1.02 }}
-whileTap={{ scale: 0.98 }}
-```
-
-## Key Features by Version
-
-### V13.0 (January 16, 2026) - Current
-- **Business Tools in Hero** - Bulk Payments and Paybill/Till Integration cards
-- **How PataPesa Works** - 5-step process with dual perspective for Step 3 (users + providers)
-- **Why Institutions Choose PataPesa** - 4 benefits with specific metrics (70% CAC, 3x conversion, KES 25K, 14 days)
-- Partnership CTA button linking to institutions page
-
-### V12.0 (January 15, 2026)
-- Blog page with 6 articles and category filters
-- Blog link added to Resources navigation (first position)
-- Team avatar color customization (Gold-Blue-Gold pattern)
-- Newsletter subscription integration
-
-### V11.0 (January 2026)
-- Team profile restructure with LinkedIn integration
-- Leadership & Governance section
-- Compliance-first messaging framework
-
-### V10.0 (January 2026)
-- Wellness Provider Dashboard features
-- Client Retention Analytics (14-day trigger)
-- Contact page office address updated to Nairobi
-
-### V9.0 (December 2025)
-- Homepage CTA optimization
-- Messaging clarity improvements
 
 ## User Segments
 
@@ -278,13 +195,7 @@ Output: `/dist` directory
 - Enhanced hover interactions
 - Full feature display
 
-## SEO Strategy
 
-**Primary Keywords:** Financial infrastructure Kenya, AI financial matching, non-custodial payment platform, MSME working capital, M-PESA integration, corporate wellness benefits
-
-**Content:** 6 blog articles covering financial education, product explainers, industry commentary, compliance, and corporate solutions
-
-**Structure:** Semantic HTML with proper heading hierarchy, meta descriptions, and internal linking
 
 ## Performance
 
