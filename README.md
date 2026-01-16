@@ -1,49 +1,329 @@
-# PataPesa Africa Website
+# PataPesa - Financial Infrastructure Platform
 
 ## Overview
-PataPesa Africa is a smart financial access platform connecting users to verified financial and wellness providers across Africa. This is a single-file HTML website showcasing the platform's features, team, and more. It's built with pure HTML, CSS, and JavaScript—no frameworks required.
 
-## Features
-- Responsive design for mobile and desktop
-- Smooth scrolling navigation with active states
-- Interactive demo section to simulate AI matching
-- Floating cards and animations in hero
-- Legal modals for Terms, Privacy, etc.
-- Brand-consistent colors and typography (Inter font)
+PataPesa is Africa's financial infrastructure layer - a non-custodial marketplace connecting users with licensed financial providers through AI-powered matching (Match Intelligence™) and unified payment infrastructure (PesaDirect™).
 
-## Installation
-1. Download the `index.html` file.
-2. Open it in any modern browser (Chrome, Firefox, etc.).
-3. No server or dependencies needed—runs offline!
+**Positioning:** "The Intelligence Layer for Your Financial Life"
 
-## Usage
-- Navigate using the top menu (click links to scroll to sections).
-- In the **Interactive Demo** section:
-  - Select a financial need and user type.
-  - Click "Match Me!" to see mock recommendations.
-- Click legal links in footer to view modals.
-- Hover over elements for transitions and effects.
+**Core Value:**
+- 100% non-custodial architecture (we never hold user funds)
+- AI-powered matching with 95% accuracy
+- Unified payment infrastructure (M-PESA, cards, banks, stablecoins)
+- ODPC compliant (CF/2026/INST-01)
 
-## Customization
-- **Colors**: Edit `:root` variables in `<style>` (e.g., `--primary-blue: #003366;`).
-- **Content**: Update text in HTML sections directly.
-- **Demo Logic**: Modify the JavaScript in the demo submit event for custom matches.
-- Add images: Replace placeholders (e.g., team-img) with real `<img>` tags.
+## Website Architecture
 
-## Brand Kit
-- **Primary Blue**: #003366 (Trust, reliability)
-- **Deep Charcoal**: #111111 (Premium, professional)
-- **Pure White**: #FFFFFF (Clarity, transparency)
-- **Gold Accent**: #D4A43B (Value, empowerment)
-- **Typography**: Inter (Google Fonts) – Modern and clean for fintech UI.
+### Complete Site Map (17 Pages)
+
+**Home** - 8-section homepage with hero, business tools, user journey, and institutional benefits
+
+**Solutions (5 pages)**
+- For Individuals - Personal financial concierge
+- For Businesses (BIZNA HUB) - MSME financing with Financial Passport™
+- Corporate & HR - Employee wellness programs
+- Wellness Providers - Dashboard with client retention analytics
+- For Institutions - Partnership tiers and API integration
+
+**Technology (2 pages)**
+- PesaDirect™ - Unified payment infrastructure
+- Match Intelligence™ - AI recommendation engine
+
+**Resources (5 pages)**
+- Blog - 6 articles across financial education, product explainers, and industry commentary
+- About - Team profiles and governance framework
+- Contact - Office location and contact form
+- FAQs - Comprehensive Q&A
+- Insights - Provider analytics portal
+
+**Other (4 pages)**
+- Partners - 4 partnership tiers (KES 25K - 250K/month)
+- How It Works - Detailed 3-step process
+- Legal - Terms, privacy, compliance documentation
+
+### Homepage Sections
+
+1. **Hero** - Dual CTAs with business tools showcase (Bulk Payments, Paybill/Till Integration)
+2. **Stats Bar** - 150+ providers, 95% accuracy, 100% non-custodial, KES 2.5M MSME capital
+3. **Personal Financial Concierge** - "Get the QR, Pay the Staff, Get the Loan"
+4. **Intelligence Layer** - Core technology overview (PesaDirect™, Match Intelligence™, Financial Passport™)
+5. **User Segments** - 4 segments: Individuals, MSMEs, Corporate, Wellness Providers
+6. **How PataPesa Works** - 5-step journey with dual perspective (users + providers)
+7. **Why Institutions Choose PataPesa** - 4 benefits with metrics (70% CAC reduction, 3x conversion, KES 25K investment, 14-day deployment)
+8. **Trust & Compliance** - ODPC certification and non-custodial guarantee
+
+## Design System
+
+### Brand Colors
+```css
+Primary Blue:    #003366 (trust, stability)
+Gold Accent:     #D4A43B (premium, success)
+Charcoal:        #111111 (text, contrast)
+White:           #FFFFFF (backgrounds)
+```
+
+### Gradient System
+- **Gold:** `from-[#D4A43B] to-yellow-500` - Primary CTAs, CEO avatar, featured elements
+- **Blue:** `from-[#003366] to-blue-600` - Technology features, Backend Engineer avatar
+- **Purple:** `from-purple-500 to-pink-500` - Innovation, MSMEs
+- **Green:** `from-green-500 to-emerald-500` - Growth metrics, wellness
+- **Pink:** `from-pink-500 to-rose-500` - Action items, conversions
+
+### Typography
+- **H1:** 48-60px, Bold, White (Hero headlines)
+- **H2:** 36-48px, Bold, White (Section titles)
+- **H3:** 20-24px, Semibold, White (Card headers)
+- **Body:** 16px, Regular, Gray-300
+- **Small:** 14px, Regular, Gray-400
+
+### Component Patterns
+```css
+Glassmorphism Cards:
+bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10
+hover:border-[#D4A43B]/50 transition-all
+
+Primary Button:
+bg-gradient-to-r from-[#D4A43B] to-yellow-500
+rounded-full px-6 py-3 font-semibold shadow-lg
+
+Badge:
+inline-flex items-center gap-2 px-4 py-2
+bg-gradient-to-r from-[color]/20 to-[color]/20
+rounded-full border border-[color]/30
+```
+
+## Technical Stack
+
+### Core Technologies
+```json
+{
+  "framework": "React 18.3.1",
+  "buildTool": "Vite 6.3.5",
+  "styling": "Tailwind CSS 4.1.12",
+  "animation": "Motion 12.23.24",
+  "icons": "Lucide React 0.487.0",
+  "language": "TypeScript"
+}
+```
+
+### Project Structure
+```
+/src
+├── /app
+│   ├── App.tsx                    # Main app with routing
+│   ├── /pages                     # 17 page components
+│   │   ├── HomePage.tsx           # Enhanced with V13.0 features
+│   │   ├── BlogPage.tsx           # Added in V12.0
+│   │   ├── AboutPage.tsx          # Team profiles with colors
+│   │   └── [14 other pages]
+│   └── /components                # Reusable UI components
+│       ├── Navigation.tsx
+│       ├── Footer.tsx
+│       ├── StatsBar.tsx
+│       ├── IntelligenceLayer.tsx
+│       └── [other components]
+├── /styles
+│   ├── theme.css                  # Custom CSS properties
+│   └── fonts.css                  # Font imports
+└── package.json
+```
+
+### Routing
+Client-side routing using React state management:
+```typescript
+const [currentPage, setCurrentPage] = useState("home");
+```
+
+Navigation handled via `onNavigate` prop passing throughout components.
+
+### Animation System
+```typescript
+// Entry animations
+initial={{ opacity: 0, y: 30 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true }}
+transition={{ duration: 0.6 }}
+
+// Staggered animations
+transition={{ duration: 0.5, delay: index * 0.1 }}
+
+// Hover effects
+whileHover={{ y: -5, scale: 1.02 }}
+whileTap={{ scale: 0.98 }}
+```
+
+## Key Features by Version
+
+### V13.0 (January 16, 2026) - Current
+- **Business Tools in Hero** - Bulk Payments and Paybill/Till Integration cards
+- **How PataPesa Works** - 5-step process with dual perspective for Step 3 (users + providers)
+- **Why Institutions Choose PataPesa** - 4 benefits with specific metrics (70% CAC, 3x conversion, KES 25K, 14 days)
+- Partnership CTA button linking to institutions page
+
+### V12.0 (January 15, 2026)
+- Blog page with 6 articles and category filters
+- Blog link added to Resources navigation (first position)
+- Team avatar color customization (Gold-Blue-Gold pattern)
+- Newsletter subscription integration
+
+### V11.0 (January 2026)
+- Team profile restructure with LinkedIn integration
+- Leadership & Governance section
+- Compliance-first messaging framework
+
+### V10.0 (January 2026)
+- Wellness Provider Dashboard features
+- Client Retention Analytics (14-day trigger)
+- Contact page office address updated to Nairobi
+
+### V9.0 (December 2025)
+- Homepage CTA optimization
+- Messaging clarity improvements
+
+## User Segments
+
+### 1. Individuals (B2C)
+Personal financial concierge for loans, savings, insurance. AI-powered matching to relevant products with side-by-side comparison.
+
+### 2. Businesses (MSMEs) - BIZNA HUB
+Working capital access, Financial Passport™ for creditworthiness, bulk payments, Paybill/Till integration, revenue-based financing.
+
+### 3. Corporate & HR
+Employee wellness programs, salary advance solutions, subsidized wellness credits, anonymized usage reports.
+
+### 4. Wellness & Service Providers
+Provider dashboard, booking + payment integration, Client Retention Analytics, corporate wellness portal management.
+
+## Technology Platform
+
+### PesaDirect™ - Payment Infrastructure
+Unified payment orchestration across M-PESA (Paybill/Till), cards (Visa/Mastercard), bank transfers, and stablecoins. Single API integration with multi-rail routing and automatic fallback.
+
+### Match Intelligence™ - AI Recommendation Engine
+95% match accuracy through transaction intent analysis, risk-based matching, and explainable AI. Pre-qualifies users for providers, delivering 3x higher conversion vs. cold outreach.
+
+### Financial Passport™ - Business Creditworthiness
+Digital credit profile for MSMEs based on transaction history, enabling paperless credit applications and faster approval times.
+
+## Partnership Tiers
+
+| Tier | Price | Matched Users | Key Features |
+|------|-------|---------------|--------------|
+| **Explorer** | KES 25,000/mo | Up to 100 | Basic API, standard analytics |
+| **Builder** | KES 75,000/mo | Up to 500 | Full API, advanced analytics, featured placement |
+| **Enterprise** | KES 150,000/mo | Up to 2,000 | Unlimited API, dedicated manager, 99.9% SLA |
+| **Strategic** | KES 250,000+/mo | Unlimited | Custom development, co-marketing, board reporting |
+
+## Team
+
+**Raphael Kirangu** - Founder & CEO (Gold avatar)  
+Strategic vision and partnership development  
+[LinkedIn](https://linkedin.com/in/raphaelkirangu)
+
+**Brenda Wairimu** - Lead Backend Engineer (Blue avatar)  
+Bank-grade backend architecture  
+[LinkedIn](https://linkedin.com/in/brendawairimu)
+
+**Titus Kiprono** - Lead Frontend Engineer (Gold avatar)  
+Seamless user experience design  
+[LinkedIn](https://linkedin.com/in/tituskiprono)
+
+## Compliance & Security
+
+**ODPC Registration:** CF/2026/INST-01  
+**Regulatory Compliance:** Kenya Data Protection Act  
+**Architecture:** 100% non-custodial (no user funds held)  
+**AI Ethics:** Explainable AI with regular bias audits  
+**Security:** Bank-grade systems, encrypted transmission, OAuth 2.0
 
 ## Development
-- Built on November 28, 2025.
-- No external dependencies.
-- Test on different devices for responsiveness.
-- For production: Minify CSS/JS if needed.
+
+### Installation
+```bash
+npm install
+```
+
+### Development Server
+```bash
+npx vite
+```
+Opens at `http://localhost:5173`
+
+### Production Build
+```bash
+npm run build
+```
+Output: `/dist` directory
+
+### Environment Requirements
+- Node.js 18+
+- npm or pnpm package manager
+- Modern browser (Chrome, Firefox, Safari, Edge)
+
+## Responsive Design
+
+**Mobile (<640px)**
+- Single column layouts
+- Stacked CTAs and cards
+- 2-column Business Tools (compact)
+- Full-width process steps
+
+**Tablet (640px-1024px)**
+- 2-column layouts for hero and segments
+- Maintained grid systems
+- Optimized spacing
+
+**Desktop (>1024px)**
+- Multi-column layouts with max-width containers
+- Enhanced hover interactions
+- Full feature display
+
+## SEO Strategy
+
+**Primary Keywords:** Financial infrastructure Kenya, AI financial matching, non-custodial payment platform, MSME working capital, M-PESA integration, corporate wellness benefits
+
+**Content:** 6 blog articles covering financial education, product explainers, industry commentary, compliance, and corporate solutions
+
+**Structure:** Semantic HTML with proper heading hierarchy, meta descriptions, and internal linking
+
+## Performance
+
+- Component-level code splitting
+- Motion animations use GPU acceleration
+- `viewport={{ once: true }}` prevents re-animation
+- Tree-shaking via Vite
+- Individual icon imports for optimized bundle size
+
+## Browser Support
+
+- Chrome/Edge (Chromium) - Full support
+- Firefox - Full support
+- Safari - Full support
+- Modern browsers with ES6+ support
+
+## Statistics
+
+**Platform Metrics**
+- 150+ Licensed Financial Providers
+- 95% AI Match Accuracy
+- 100% Non-Custodial Architecture
+- KES 2.5M MSME Capital (avg/month)
+
+**Institutional Benefits**
+- 70% Lower Customer Acquisition Cost
+- 3x Higher Conversion Rate
+- KES 25,000 Starting Investment
+- 14 Days Deployment Timeline
+
+## Contact
+
+**Email:** contact@patapesa.africa  
+**Office:** Nairobi, Kenya  
 
 ## License
-© 2025 PataPesa Africa. All rights reserved. For educational/demo purposes.
 
-Contact: hello@patapesa.africa
+© 2026 PataPesa. All rights reserved.
+
+---
+
+
