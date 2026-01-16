@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
+import logo from '@/assets/images/patapesa-logo.png';
 
 interface NavigationProps {
   currentPage: string;
@@ -67,7 +68,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
   onClick={() => handleNavigate("home")}
 >
   <img
-    src="src/assets/images/patapesa-logo.png"  // root-relative path (Vite serves it correctly)
+    src={logo}  // root-relative path (Vite serves it correctly)
     alt="PataPesa Africa Logo"
     className="w-10 h-10 object-contain rounded-lg shadow-md"
   />

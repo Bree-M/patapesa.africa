@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Linkedin, Facebook, Instagram, Mail, ArrowUp } from "lucide-react";
+import logo from '@/assets/images/patapesa-logo.png';
 
 // Custom X (Twitter) Icon
 const XIcon = ({ className }: { className?: string }) => (
@@ -93,7 +94,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   transition={{ duration: 0.3 }}
                 >
 <img 
-  src="src/assets/images/patapesa-logo.png" 
+  src={logo} 
   alt="PataPesa Africa Logo" 
   className="w-6 h-6 object-contain"
 />                </motion.div>
