@@ -263,7 +263,9 @@ export function Footer({ onNavigate }: FooterProps) {
                 ></iframe>
               </div>
               <p className="text-gray-400 text-sm mt-3">
-                <strong className="text-white">Circle Fund Africa Ltd</strong><br />
+                <strong className="text-white">TUWORK COWORKING NAIROBI</strong><br />
+                Olenguruone Ave,Lavington,Nairobi<br />
+              
                 Nairobi, Kenya
               </p>
             </div>

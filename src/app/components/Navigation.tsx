@@ -75,8 +75,8 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
   {/* Optional: keep text beside the logo if you want both */}
   <div className="hidden sm:block">
     <div className="text-white font-bold text-xl">
-      <span className="text-[#D4A43B]">Pata</span>
-      <span className="text-white">Pesa</span>
+      <span className="text-white">Pata</span>
+      <span className="text-[#D4A43B]">Pesa</span>
       <span className="text-white ml-1">Africa</span>
     </div>
     <div className="text-gray-300 text-xs font-semibold">
