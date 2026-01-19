@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
+import logo from '@/assets/images/patapesa-logo.png';
+
 
 interface NavigationProps {
   currentPage: string;
@@ -67,7 +69,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
           >
   <div className="w-10 h-10 rounded-lg flex items-center justify-center">
   <img 
-      src="/src/assets/images/patapesa-logo.png" 
+      src={logo} 
       alt="PataPesa Africa Logo" 
       className="w-full h-full object-contain"
     />            </div>
