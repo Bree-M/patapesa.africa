@@ -315,7 +315,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               {
                 step: "5",
                 title: "Connect & Pay Directly",
-                description: "Choose your provider and transact securely via PesaFlow™",
+                description: "Choose your provider and transact securely via PesaDirect™",
                 icon: Zap,
                 color: "from-pink-500 to-rose-500"
               }

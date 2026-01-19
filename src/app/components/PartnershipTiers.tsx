@@ -3,55 +3,56 @@ import { Check, TrendingUp, Zap, Crown } from "lucide-react";
 
 const tiers = [
   {
-    name: "Tier 1: Marketplace",
+    name: "Tier 1: Marketplace (Standard)",
     subtitle: "Rapid Entry & Visibility",
     icon: TrendingUp,
     setupFee: "KES 25,000",
-    monthlyFee: "KES 60,000",
+    subscription: "KES 60,000 / Month",
     color: "from-blue-500 to-cyan-500",
     features: [
-      "Product listing on marketplace",
-      "Basic AI matching",
+      "Basic marketplace listing",
+      "Product visibility to matched users",
       "Standard analytics dashboard",
       "Email support",
-      "Monthly performance reports"
+      "Community access"
     ],
     popular: false
   },
   {
-    name: "Tier 2: API Integrated",
+    name: "Tier 2: API Integrated (Institutional)",
     subtitle: "Automation & Efficiency",
     icon: Zap,
     setupFee: "KES 150,000",
-    monthlyFee: "KES 150,000",
+    subscription: "KES 450,000 / Quarter",
+    monthlyEquivalent: "(Equivalent to 150k/mo)",
     color: "from-purple-500 to-pink-500",
     features: [
       "Full API integration",
-      "Advanced AI matching",
-      "Real-time analytics & KPIs",
-      "Direct CRM integration",
-      "Webhook notifications",
+      "Automated Match Intelligence™ routing",
+      "Advanced analytics & insights",
       "Priority support",
-      "A/B testing capabilities"
+      "Custom product mapping",
+      "14-Day Rapid Integration Journey"
     ],
     popular: true
   },
   {
-    name: "Tier 3: Branded Branch",
+    name: "Tier 3: Branded Branch (Enterprise)",
     subtitle: "Brand Dominance & Priority",
     icon: Crown,
     setupFee: "KES 200,000",
-    monthlyFee: "KES 300,000",
-    color: "from-yellow-500 to-orange-500",
+    subscription: "KES 900,000 / Quarter",
+    monthlyEquivalent: "(Equivalent to 300k/mo)",
+    color: "from-[#D4A43B] to-yellow-500",
     features: [
-      "Dedicated branded section",
+      "Everything in API Integrated",
+      "Dedicated branded storefront",
       "Premium placement priority",
-      "Custom product optimization",
-      "White-label options",
       "Dedicated account manager",
-      "Custom analytics & reporting",
-      "Strategic partnership benefits",
-      "Co-marketing opportunities"
+      "White-label options",
+      "Co-marketing opportunities",
+      "Custom Match Intelligence™ calibration",
+      "Board-level reporting"
     ],
     popular: false
   }
@@ -119,8 +120,9 @@ export function PartnershipTiers() {
               <div className="mb-6">
                 <div className="text-sm text-gray-400 mb-1">Setup Fee</div>
                 <div className="text-2xl text-white font-bold mb-3">{tier.setupFee}</div>
-                <div className="text-sm text-gray-400 mb-1">Monthly Fee</div>
-                <div className="text-3xl text-white font-bold">{tier.monthlyFee}</div>
+                <div className="text-sm text-gray-400 mb-1">Subscription</div>
+                <div className="text-3xl text-white font-bold">{tier.subscription}</div>
+                {tier.monthlyEquivalent && <div className="text-xs text-gray-400 mt-1">{tier.monthlyEquivalent}</div>}
                 <div className="text-xs text-gray-400 mt-1">*Exclusive of 16% VAT</div>
               </div>
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import logo from '@/assets/images/patapesa-logo.png';
 
 interface NavigationProps {
   currentPage: string;
@@ -59,32 +58,38 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
     <nav className="sticky top-0 z-50 bg-[#003366] backdrop-blur-lg border-b border-white/10 shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-{/* Logo - real image version */}
-<motion.div
-  initial={{ opacity: 0, x: -20 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.6 }}
-  className="flex items-center gap-3 cursor-pointer"
-  onClick={() => handleNavigate("home")}
->
-  <img
-    src={logo}  // root-relative path (Vite serves it correctly)
-    alt="PataPesa Africa Logo"
-    className="w-10 h-10 object-contain rounded-lg shadow-md"
-  />
-
-  {/* Optional: keep text beside the logo if you want both */}
-  <div className="hidden sm:block">
-    <div className="text-white font-bold text-xl">
-      <span className="text-white">Pata</span>
-      <span className="text-[#D4A43B]">Pesa</span>
-      <span className="text-white ml-1">Africa</span>
-    </div>
-    <div className="text-gray-300 text-xs font-semibold">
-      Africa's Financial Infrastructure
-    </div>
-  </div>
-</motion.div>
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => handleNavigate("home")}
+          >
+  <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+  <img 
+      src="/src/assets/images/patapesa-logo.png" 
+      alt="PataPesa Africa Logo" 
+      className="w-full h-full object-contain"
+    />            </div>
+            {/* Desktop & Tablet - Full branding with tagline */}
+            <div className="hidden sm:block">
+              <div className="text-white font-bold text-xl">
+                <span className="text-[#003366] bg-clip-text" style={{ color: '#FFFFFF' }}>Pata</span>
+                <span className="text-[#D4A43B]">Pesa</span>
+                <span className="text-white ml-1">Africa</span>
+              </div>
+              <div className="text-gray-300 text-xs font-semibold">Africa's Financial Infrastructure</div>
+            </div>
+            {/* Mobile - PataPesa Africa with tagline */}
+            <div className="block sm:hidden">
+              <div className="text-white font-bold text-lg">
+                <span style={{ color: '#FFFFFF' }}>Pata</span>
+                <span className="text-[#D4A43B]">Pesa</span>
+                <span className="text-white ml-1">Africa</span>
+              </div>
+              <div className="text-gray-300 text-[10px] font-semibold">Africa's Financial Infrastructure</div>
+            </div>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
